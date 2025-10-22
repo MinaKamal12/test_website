@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 
 
-WORKDIR src/app
+WORKDIR /app
 
 
 
