@@ -1,5 +1,4 @@
-name: CI/CD Pipeline for Flask App
-
+name: CI/CD Pipeline for test_website
 on:
   push:
     branches: [ main ]
@@ -51,7 +50,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: minakmorgan/flask-task-app:latest
+          tags: minakmorgan/ftest_website:latest
 
       # --- Deploy to EC2 ---
       - name: Deploy to AWS EC2 via SSH
@@ -63,13 +62,13 @@ jobs:
           port: 22
           script: |
             echo "🔹 Pulling latest Docker image..."
-            docker pull minakmorgan/flask-task-app:latest
+            docker pull minakmorgan/test_website:latest
 
             echo "🔹 Stopping old container if exists..."
-            docker stop flask-container || true
-            docker rm flask-container || true
+            docker stop test_website || true
+            docker rm test_website || true
 
             echo "🔹 Running new container..."
-            docker run -d --name flask-container -p 80:5000 minakmorgan/flask-task-app:latest
+            docker run -d --name test_website -p 80:5000 minakmorgan/test_website:latest
 
             echo "✅ Deployment complete! Your Flask app is live."
