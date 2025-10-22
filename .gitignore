@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+instance/
+.env
+venv/
+ENV/
+env/
+
+# VSCode / IDE
+.vscode/
+.idea/
+*.swp
+
+# Mac / Linux / Windows
+.DS_Store
+Thumbs.db
+
+# Docker
+*.log
+*.pid
+*.seed
+*.tar
+*.gz
+*.bak
+*.tmp
+*.sock
+
+# Pytest / Coverage
+.coverage
+htmlcov/
+.tox/
+pytest_cache/
+
+# Deployment
+*.pem
